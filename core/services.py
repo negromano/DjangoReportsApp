@@ -1,11 +1,8 @@
 import io
-import json
 import time
 from io import BytesIO
 
-from django.shortcuts import render
 from PIL import Image
-from django.http import HttpResponse, Http404, FileResponse
 from django.template.defaultfilters import center
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
@@ -24,6 +21,13 @@ class queries:
     def firstQuery(self, cols, filter_col, filter_val, table):
         with connection.cursor() as cursor:
             cursor.execute("SELECT "+cols[0]+", "+cols[1]+", "+cols[2]+" FROM "+table+" WHERE "+filter_col+" = "+filter_val)
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def dateQuery(self, cols, date_col, from_date, to_date, table):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT "+cols[0]+", "+cols[1]+", "+cols[2]+" FROM "+table+" WHERE "+date_col+
+                           " BETWEEN TO_DATE('"+from_date+"', 'DD-MM-YYYY') AND TO_DATE('"+to_date+"', 'DD-MM-YYYY')")
             result = self.namedtuplefetchall(cursor)
         return result
 
@@ -57,25 +61,14 @@ class reports:
         styleH.fontName = "Helvetica-bold"
         styleH.alignment = TA_CENTER
         styleH.fontSize = 10
-        profundidad = Paragraph('Profundidad', styleH)
-        profundidad_corregida = Paragraph('P. Corregida', styleH)
-        area = Paragraph('Área', styleH)
-        velocidad = Paragraph('Velocidad', styleH)
-        q = Paragraph('Q', styleH)
-        q_corregida = Paragraph('Q Corregida', styleH)
-        error = Paragraph('Error', styleH)
-        data.append([profundidad, profundidad_corregida, area, velocidad, q, q_corregida, error])
-        t_height = p_h * 0.7
-        t_width = p_w * 0.06
-        for i in range(0, 30):
-            data.append(["1", "2", "3", "4", "5", "6", "7","8"])
-            t_height -= 0.6 * cm
+        t_height = (p_h - (1*0.6*cm))*0.2
+        t_width = (p_w -(len(data[0])*2.7*cm))/2
 
         # Contenido de la Tabla
         styleN = styles["BodyText"]
         styleN.alignment = TA_CENTER
         styleN.fontSize = 7
-
+        data=(["1","2","3"])
         # Dibujo de la tabla
         table = Table(data, colWidths=[2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm],
                       rowHeights=0.6 * cm)
@@ -83,28 +76,8 @@ class reports:
             [('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black), ('BOX', (0, 0), (-1, -1), 0.25, colors.black), ]))
         table.wrapOn(c, p_w, p_h)
         table.drawOn(c, t_width, t_height)
-
         c.showPage()
-        for i in range(0, 5):
-            data.clear()
-            t_height = p_h * 0.95
-            for i in range(0, 45):
-                data.append(["1", "2", "3", "4", "5", "6", "7"])
-                t_height -= 0.6 * cm
-
-            # Dibujo de la tabla
-            table = Table(data, colWidths=[2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm],
-                          rowHeights=0.6 * cm)
-            table.setStyle(TableStyle(
-                [('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black), ('BOX', (0, 0), (-1, -1), 0.25, colors.black), ]))
-            table.wrapOn(c, p_w, p_h)
-            table.drawOn(c, t_width, t_height)
-
-            c.showPage()
-
         c.save()
-
-        # Get the value of the StringIO buffer and write it to the response.
         pdf = buffer.getvalue()
         buffer.close()
         return pdf

@@ -1,23 +1,5 @@
-import io
-import json
-import time
-from io import BytesIO
-
 from django.shortcuts import render
-from PIL import Image
 from django.http import HttpResponse, Http404, FileResponse
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.template.defaultfilters import center
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.lib.units import cm
-from reportlab.pdfgen import canvas
-import xlsxwriter
-from reportlab.platypus import Table, TableStyle, Paragraph
-from core.models import Flows, FlowTypes, Devices, Stations, Record
-from collections import namedtuple
 from core.services import *
 
 
@@ -46,10 +28,18 @@ def download_excel_report(request):
     return response
 
 def oracle(request):
-    queries = queries()
+    service = queries()
     cols = ["FIRST_NAME", "LAST_NAME", "SALARY"]
-    filter_col = "EMPLOYEE_ID"
-    filter_val = "7839"
+    data = [cols]
+    filter_col = "HIRE_DATE"
+    from_date = "01-01-1980"
+    to_date = "01-01-2010"
     table = "EMPLOYEE"
-    result = queries.firstQuery(cols, filter_col, filter_val, table)
-    return HttpResponse("It works!")
+    result = service.dateQuery(cols, filter_col, from_date, to_date, table)
+    for row in result:
+        data.append([row[0], row[1], row[2]])
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=reporte.pdf'
+    pdf = reports.pdf(data, "Testing info")
+    response.write(pdf)
+    return response

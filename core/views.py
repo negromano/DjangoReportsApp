@@ -172,6 +172,16 @@ def dos_tablas_funcion_tipo_2(request):
         result = service.two_tables_sum(pk)
         return download_pdf_report_two_cols(request, result, data, 'dos-tablas-funcion/tipo2.html')
 
+def customer_function(request):
+    if request.method == 'GET':
+        return render(request, 'customer.html')
+    if request.method == 'POST':
+        service = queries()
+        cols = ["CUSTOMER", "SUM"]
+        data = [cols]
+        result = service.customer_query()
+        return download_pdf_report_two_cols(request, result, data, 'customer.html')
+
 def oracle(request):
     service = queries()
     cols = ["FIRST_NAME", "LAST_NAME", "SALARY"]

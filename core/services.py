@@ -85,6 +85,16 @@ class queries:
             result = self.namedtuplefetchall(cursor)
         return result
 
+    def customer_query(self):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT CUSTOMER.CUSTOMER_ID, SUM(ITEM.TOTAL) AS SUM "
+                           +"FROM SALES_ORDER, ITEM, CUSTOMER "
+                           +"WHERE SALES_ORDER.ORDER_ID = ITEM.ORDER_ID "
+                           +"AND SALES_ORDER.CUSTOMER_ID = CUSTOMER.CUSTOMER_ID "
+                           +" GROUP BY CUSTOMER.CUSTOMER_ID")
+            result = self.namedtuplefetchall(cursor)
+        return result
+
     def namedtuplefetchall(self, cursor):
         desc = cursor.description
         nt_result = namedtuple('Result', [col[0] for col in desc])

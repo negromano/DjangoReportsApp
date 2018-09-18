@@ -19,5 +19,6 @@ urlpatterns = [
     path('dos-tablas-sencillas/tipo3', views.dos_tablas_sencillas_tipo_3, name='tipo3_3'),
     path('dos-tablas-funcion/tipo1', views.dos_tablas_funcion_tipo_1, name='tipo4_1'),
     path('dos-tablas-funcion/tipo2', views.dos_tablas_funcion_tipo_2, name='tipo4_2'),
+    path('customer', views.customer_function, name='customer'),
     re_path(r'^pdf/', views.download_pdf_report, name="pdf_report"),
 ]

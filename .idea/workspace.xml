@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="336f3a98-b8c7-4f20-b9f7-b1977271d7a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SMH/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SMH/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SMH/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SMH/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/acerca.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/acerca.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,40 +55,42 @@
     <session id="-2126488247">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="16" />
-          <entry key="html" value="1673" />
-          <entry key="py" value="4954" />
+          <entry key="css" value="48" />
+          <entry key="html" value="1829" />
+          <entry key="py" value="5120" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="16" />
-          <entry key="HTML" value="1673" />
-          <entry key="Python" value="4954" />
+          <entry key="CSS" value="48" />
+          <entry key="HTML" value="1829" />
+          <entry key="Python" value="5116" />
+          <entry key="SQL" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.35" value="2" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.55" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="1" />
-          <entry key="html" value="30" />
+          <entry key="css" value="2" />
+          <entry key="html" value="32" />
           <entry key="py" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="1" />
-          <entry key="HTML" value="30" />
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="32" />
           <entry key="Python" value="20" />
         </counts>
       </usages-collector>
@@ -104,22 +103,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+                <state relative-caret-position="245">
+                  <caret line="178" column="27" selection-start-line="178" selection-start-column="27" selection-end-line="178" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
-                    <element signature="e#754#1234#0" />
-                    <element signature="e#1276#1773#0" />
-                    <element signature="e#1815#2427#0" />
-                    <element signature="e#2468#2947#0" />
-                    <element signature="e#2988#3467#0" />
-                    <element signature="e#3508#3987#0" />
-                    <marker date="1537243956681" expanded="true" signature="146:252" ph="..." />
-                    <marker date="1537243956681" expanded="true" signature="717:6819" ph="..." />
-                    <marker date="1537243956681" expanded="true" signature="2955:6819" ph="..." />
-                    <marker date="1537243956681" expanded="true" signature="4484:6819" ph="..." />
-                    <marker date="1537243956681" expanded="true" signature="6839:6844" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="146:252" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="717:7176" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="2955:7176" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="4484:7176" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="6850:7176" ph="..." />
+                    <marker date="1537276872843" expanded="true" signature="7196:7201" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/core/templates/customer.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" />
                 </state>
               </provider>
             </entry>
@@ -127,17 +130,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo1.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="105" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
+                <state>
+                  <caret selection-end-line="17" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo2.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="106" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -145,8 +148,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+                <state relative-caret-position="315">
+                  <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
                   <folding>
                     <element signature="e#0#46#0" expanded="true" />
                   </folding>
@@ -161,15 +164,34 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/services.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="406">
-                  <caret line="82" column="85" selection-start-line="82" selection-start-column="85" selection-end-line="82" selection-end-column="85" />
+                <state relative-caret-position="301">
+                  <caret line="93" column="61" selection-start-line="93" selection-start-column="61" selection-end-line="93" selection-end-column="61" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
-                    <marker date="1537244090950" expanded="true" signature="1572:1904" ph="..." />
-                    <marker date="1537244090950" expanded="true" signature="1945:3948" ph="..." />
-                    <marker date="1537244090950" expanded="true" signature="3243:3588" ph="..." />
-                    <marker date="1537244090950" expanded="true" signature="3619:3948" ph="..." />
+                    <marker date="1537276890351" expanded="true" signature="1572:1904" ph="..." />
+                    <marker date="1537276890351" expanded="true" signature="1945:4462" ph="..." />
+                    <marker date="1537276890351" expanded="true" signature="3243:3588" ph="..." />
+                    <marker date="1537276890351" expanded="true" signature="3619:4462" ph="..." />
+                    <marker date="1537276890351" expanded="true" signature="3973:4462" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/templates/header.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/styles.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret selection-end-line="2" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -216,7 +238,6 @@
       <list>
         <option value="$PROJECT_DIR$/SMH/urls.py" />
         <option value="$PROJECT_DIR$/SMH/settings.py" />
-        <option value="$PROJECT_DIR$/static/styles.css" />
         <option value="$PROJECT_DIR$/core/templates/index.html" />
         <option value="$PROJECT_DIR$/core/models.py" />
         <option value="$PROJECT_DIR$/core/templates/error_page.html" />
@@ -225,7 +246,6 @@
         <option value="$PROJECT_DIR$/core/templates/tabla-sencilla/tipos.html" />
         <option value="$PROJECT_DIR$/core/templates/tabla-sencilla/tipo3.html" />
         <option value="$PROJECT_DIR$/core/templates/acerca.html" />
-        <option value="$PROJECT_DIR$/core/templates/header.html" />
         <option value="$PROJECT_DIR$/core/templates/tabla-funcion/tipo1.html" />
         <option value="$PROJECT_DIR$/core/templates/tabla-funcion/tipo3.html" />
         <option value="$PROJECT_DIR$/core/templates/dos-tablas-sencillas/tipo1.html" />
@@ -233,11 +253,14 @@
         <option value="$PROJECT_DIR$/core/templates/dos-tablas-sencillas/tipo3.html" />
         <option value="$PROJECT_DIR$/core/templates/tabla-sencilla/tipo2.html" />
         <option value="$PROJECT_DIR$/core/templates/dos-tablas-sencillas/tipo2.html" />
+        <option value="$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo2.html" />
+        <option value="$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo1.html" />
+        <option value="$PROJECT_DIR$/static/styles.css" />
+        <option value="$PROJECT_DIR$/core/templates/header.html" />
         <option value="$PROJECT_DIR$/core/urls.py" />
         <option value="$PROJECT_DIR$/core/views.py" />
-        <option value="$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo2.html" />
+        <option value="$PROJECT_DIR$/core/templates/customer.html" />
         <option value="$PROJECT_DIR$/core/services.py" />
-        <option value="$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo1.html" />
       </list>
     </option>
   </component>
@@ -274,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,6 +357,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,7 +442,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13841201" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14002146" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.31827956" />
@@ -466,9 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/styles.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -501,13 +521,6 @@
     <entry file="file://$PROJECT_DIR$/core/templates/tabla-sencilla/tipo1.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/acerca.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/tabla-funcion/tipo1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -519,13 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="86" selection-start-line="3" selection-start-column="86" selection-end-line="3" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -564,62 +570,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/acerca.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+        <state relative-caret-position="315">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+        <state relative-caret-position="245">
+          <caret line="178" column="27" selection-start-line="178" selection-start-column="27" selection-end-line="178" selection-end-column="27" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#754#1234#0" />
-            <element signature="e#1276#1773#0" />
-            <element signature="e#1815#2427#0" />
-            <element signature="e#2468#2947#0" />
-            <element signature="e#2988#3467#0" />
-            <element signature="e#3508#3987#0" />
-            <marker date="1537243956681" expanded="true" signature="146:252" ph="..." />
-            <marker date="1537243956681" expanded="true" signature="717:6819" ph="..." />
-            <marker date="1537243956681" expanded="true" signature="2955:6819" ph="..." />
-            <marker date="1537243956681" expanded="true" signature="4484:6819" ph="..." />
-            <marker date="1537243956681" expanded="true" signature="6839:6844" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="146:252" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="717:7176" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="2955:7176" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="4484:7176" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="6850:7176" ph="..." />
+            <marker date="1537276872843" expanded="true" signature="7196:7201" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/customer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/services.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="82" column="85" selection-start-line="82" selection-start-column="85" selection-end-line="82" selection-end-column="85" />
+        <state relative-caret-position="301">
+          <caret line="93" column="61" selection-start-line="93" selection-start-column="61" selection-end-line="93" selection-end-column="61" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1537244090950" expanded="true" signature="1572:1904" ph="..." />
-            <marker date="1537244090950" expanded="true" signature="1945:3948" ph="..." />
-            <marker date="1537244090950" expanded="true" signature="3243:3588" ph="..." />
-            <marker date="1537244090950" expanded="true" signature="3619:3948" ph="..." />
+            <marker date="1537276890351" expanded="true" signature="1572:1904" ph="..." />
+            <marker date="1537276890351" expanded="true" signature="1945:4462" ph="..." />
+            <marker date="1537276890351" expanded="true" signature="3243:3588" ph="..." />
+            <marker date="1537276890351" expanded="true" signature="3619:4462" ph="..." />
+            <marker date="1537276890351" expanded="true" signature="3973:4462" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="105" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/dos-tablas-funcion/tipo2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="106" selection-start-line="12" selection-start-column="106" selection-end-line="12" selection-end-column="106" />
         </state>
       </provider>
     </entry>

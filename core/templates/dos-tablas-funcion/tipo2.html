@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<body>
+<div class="container">
+    <h3>Buscar en las Tablas Producto y Objeto la sumatoria en inventario de un producto</h3>
+    <h4 class="text-danger">
+  {{  message }}
+</h4>
+<form action="/dos-tablas-funcion/tipo2" method="post">
+    <div class="form-group">
+        <label for="llavePrimaria">Llave Primaria de Producto</label>
+        <input type="text" class="form-control" id="llavePrimaria" aria-describedby="llavePrimariaDescribe"
+               placeholder="Ingrese la llave Primaria" name="llavePrimaria">
+        <small id="llavePrimariaDescribe" class="form-text text-muted">Llave Primaria de la tabla producto</small>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Descargar"/>
+</form>
+</body>
+</div>

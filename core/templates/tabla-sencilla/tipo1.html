@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<body>
+<div class="container">
+    <h3>Buscar en la Tabla Empleado por la Llave Primaria</h3>
+    <h4 class="text-danger">
+  {{  message }}
+</h4>
+<form action="/tabla-sencilla/tipo1" method="post">
+    <div class="form-group">
+        <label for="llavePrimaria">Llave Primaria</label>
+        <input type="text" class="form-control" id="llavePrimaria" aria-describedby="llavePrimariaDescribe"
+               placeholder="Ingrese la llave Primaria" name="llavePrimaria">
+        <small id="llavePrimariaDescribe" class="form-text text-muted">Llave Primaria de la tabla empleado</small>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Descargar"/>
+</form>
+</body>
+</div>

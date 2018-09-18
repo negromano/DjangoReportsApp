@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<body>
+<div class="container">
+    <h3>Buscar en las Tablas Empleado y Trabajo la cantidad de empleados asignados a un puesto</h3>
+    <h4 class="text-danger">
+  {{  message }}
+</h4>
+<form action="/dos-tablas-funcion/tipo1" method="post">
+    <div class="form-group">
+        <label for="llavePrimaria">Llave Primaria</label>
+        <input type="text" class="form-control" id="llavePrimaria" aria-describedby="llavePrimariaDescribe"
+               placeholder="Ingrese la llave Primaria" name="llavePrimaria">
+        <small id="llavePrimariaDescribe" class="form-text text-muted">Llave Primaria de la tabla Trabajo</small>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Descargar"/>
+</form>
+</body>
+</div>

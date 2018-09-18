@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+<body>
+<div class="container">
+    <h3>Buscar en la Tabla Cliente agrupando por atributo y halle el máximo de crédito</h3>
+    <h4 class="text-danger">
+  {{  message }}
+</h4>
+<form action="/tabla-funcion/tipo3" method="post">
+    <div class="form-group">
+        <label for="col">Columna a agrupar</label>
+        <select class="custom-select" name="col" id="col">
+  <option selected>Elija el atributo</option>
+  <option value="STATE">Estado</option>
+  <option value="ADDRESS">Dirección</option>
+  <option value="CITY">Ciudad</option>
+  <option value="ZIP_CODE">Código Zip</option>
+  <option value="AREA_CODE">Código de Área</option>
+</select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Descargar"/>
+</form>
+</body>
+</div>

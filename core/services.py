@@ -20,14 +20,68 @@ class queries:
 
     def firstQuery(self, cols, filter_col, filter_val, table):
         with connection.cursor() as cursor:
-            cursor.execute("SELECT "+cols[0]+", "+cols[1]+", "+cols[2]+" FROM "+table+" WHERE "+filter_col+" = "+filter_val)
+            cursor.execute("SELECT "+cols[0]+", "+cols[1]+", "+cols[2]+" FROM "+table+" WHERE "+filter_col+" = '"+filter_val+"'")
             result = self.namedtuplefetchall(cursor)
         return result
 
     def dateQuery(self, cols, date_col, from_date, to_date, table):
         with connection.cursor() as cursor:
             cursor.execute("SELECT "+cols[0]+", "+cols[1]+", "+cols[2]+" FROM "+table+" WHERE "+date_col+
-                           " BETWEEN TO_DATE('"+from_date+"', 'DD-MM-YYYY') AND TO_DATE('"+to_date+"', 'DD-MM-YYYY')")
+                           " BETWEEN TO_DATE('"+from_date+"', 'MM-DD-YYYY') AND TO_DATE('"+to_date+"', 'MM-DD-YYYY')")
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def count_query(self, col, table):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT "+col+", COUNT (*) AS COUNT FROM "+ table  +" GROUP BY " + col)
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def sum_query(self,col, table, filter_col, filter_val, sum_col):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM "+
+                "(SELECT "+col+" FROM "+ table+" WHERE "+filter_col+" = "+filter_val+") A,"+
+                "(SELECT SUM("+sum_col+") AS SUM FROM "+table+") B")
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def max_query(self, col, max_col, table):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT "+col+", MAX("+max_col+") AS MAX FROM "+ table  +" GROUP BY " + col);
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def third_query(self, filter_col, filter_val):
+        if filter_col is None and filter_val is None:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT EMPLOYEE.FIRST_NAME, DEPARTMENT.NAME, JOB.FUNCTION "
+                    +"FROM JOB, EMPLOYEE, DEPARTMENT "
+                    +"WHERE EMPLOYEE.JOB_ID = JOB.JOB_ID "
+                    +"AND DEPARTMENT.DEPARTMENT_ID = EMPLOYEE.DEPARTMENT_ID")
+                result = self.namedtuplefetchall(cursor)
+        else:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT EMPLOYEE.FIRST_NAME, DEPARTMENT.NAME, JOB.FUNCTION "
+                               + "FROM JOB, EMPLOYEE, DEPARTMENT "
+                               + "WHERE EMPLOYEE.JOB_ID = JOB.JOB_ID "
+                               + "AND DEPARTMENT.DEPARTMENT_ID = EMPLOYEE.DEPARTMENT_ID"
+                               + " AND EMPLOYEE."+filter_col+" = '"+filter_val+"'")
+                result = self.namedtuplefetchall(cursor)
+        return result
+
+    def two_tables_sum(self, pk):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM"
+            +" (SELECT SUM(QUANTITY) AS SUM FROM ITEM WHERE ITEM.PRODUCT_ID = "+pk+") A,"
+            +" (SELECT PRODUCT.DESCRIPTION FROM PRODUCT WHERE PRODUCT_ID = "+pk+") B")
+            result = self.namedtuplefetchall(cursor)
+        return result
+
+    def two_tables_count(self, pk):
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM "
+            +" (SELECT COUNT (*) AS COUNT FROM EMPLOYEE WHERE EMPLOYEE.JOB_ID = "+pk+") A,"
+            +" (SELECT FUNCTION FROM JOB WHERE JOB_ID = "+pk+") B")
             result = self.namedtuplefetchall(cursor)
         return result
 
@@ -61,44 +115,61 @@ class reports:
         styleH.fontName = "Helvetica-bold"
         styleH.alignment = TA_CENTER
         styleH.fontSize = 10
-        t_height = (p_h - (1*0.6*cm))*0.2
-        t_width = (p_w -(len(data[0])*2.7*cm))/2
+        min_data = data
+
+        if len(data)>30:
+            min_data = data[:30]
+            rest_data = data[30:]
+
+
+        if len(data[0])==3:
+            t_height = (p_h * 0.75) - (len(min_data) * 0.6 * cm)
+            t_width = (p_w - (len(min_data[0]) * 5 * cm)) / 2
+        else:
+            t_height = (p_h * 0.75) - (len(min_data) * 0.6 * cm)
+            t_width = 156
 
         # Contenido de la Tabla
         styleN = styles["BodyText"]
         styleN.alignment = TA_CENTER
         styleN.fontSize = 7
-        data=(["1","2","3"])
         # Dibujo de la tabla
-        table = Table(data, colWidths=[2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm, 2.7 * cm],
+        table = Table(min_data, colWidths=[5 * cm, 5 * cm, 5 * cm, 5 * cm, 5 * cm],
                       rowHeights=0.6 * cm)
         table.setStyle(TableStyle(
             [('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black), ('BOX', (0, 0), (-1, -1), 0.25, colors.black), ]))
         table.wrapOn(c, p_w, p_h)
         table.drawOn(c, t_width, t_height)
         c.showPage()
+
+
+        if len(data)>30:
+            pages = int(len(rest_data)/30)
+            if len(rest_data)%30 != 0:
+                pages = pages+1
+            for i in range(0, pages):
+                min_data = rest_data[:30]
+                rest_data = rest_data[30:]
+                t_height = (p_h * 0.9) - (len(min_data) * 0.6 * cm)
+                t_width = (p_w - (len(min_data[0]) * 5 * cm)) / 2
+
+                # Contenido de la Tabla
+                styleN = styles["BodyText"]
+                styleN.alignment = TA_CENTER
+                styleN.fontSize = 7
+                # Dibujo de la tabla
+                table = Table(min_data,
+                              colWidths=[5 * cm, 5 * cm, 5 * cm, 5 * cm, 5 * cm],
+                              rowHeights=0.6 * cm)
+                table.setStyle(TableStyle(
+                    [('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black),
+                     ('BOX', (0, 0), (-1, -1), 0.25, colors.black), ]))
+                table.wrapOn(c, p_w, p_h)
+                table.drawOn(c, t_width, t_height)
+                c.showPage()
+
         c.save()
+
         pdf = buffer.getvalue()
         buffer.close()
         return pdf
-
-    @staticmethod
-    def excel():
-        output = io.BytesIO()
-        workbook = xlsxwriter.Workbook(output)
-        worksheet = workbook.add_worksheet()
-        worksheet.set_column(0, 7, 20)
-        data = []
-        header_format = workbook.add_format({'border': True, 'bold': True})
-        header = ["Profundidad", "P. Corregida", "Área", "Velocidad", "Q", "Q Corregida", "Error"]
-        for x in range(0, 7):
-            worksheet.write(0, x, header[x], header_format)
-        for i in range(0, 45):
-            data.append(["1", "2", "3", "4", "5", "6", "7"])
-        cell_format = workbook.add_format({'border': True})
-        for row_num, columns in enumerate(data):
-            for col_num, cell_data in enumerate(columns):
-                worksheet.write(row_num + 1, col_num, cell_data, cell_format)
-        workbook.close()
-        output.seek(0)
-        return output
